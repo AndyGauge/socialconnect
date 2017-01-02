@@ -1,3 +1,8 @@
 <h1>
   {{title}}
 </h1>
+
+<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]=12>
+</sebm-google-map>
+<input [(ngModel)]="locale" type="text">
+<button (click)="geoLocate(locale)">Goto</button> {{locale}}
