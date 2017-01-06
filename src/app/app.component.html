@@ -3,6 +3,16 @@
 </h1>
 
 <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]=12>
+  <sebm-google-map-marker
+        *ngFor="let m of markers; let i = index"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [label]="m.label"
+        [markerDraggable]="m.draggable"
+        [iconUrl]="m.icon">
+        <sebm-google-map-info-window>test</sebm-google-map-info-window>
+
+      </sebm-google-map-marker>
 </sebm-google-map>
 <input [(ngModel)]="locale" type="text">
-<button (click)="geoLocate(locale)">Goto</button> {{locale}}
+<button (click)="geoLocate(locale)">Goto</button>
