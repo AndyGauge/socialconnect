@@ -3,6 +3,9 @@ provider "heroku" {
   api_key="${var.heroku_api_key}"
 }
 resource "heroku_app" "socialconnectclient"{
-  name="socialconnect"
+  name="ngsocialconnect"
   region = "us"
+  provisioner "local-exec" {
+    command = "git remote add heroku ${heroku_app.socialconnectclient.git_url} & git push heroku master"
+  }
 }
